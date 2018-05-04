@@ -1,0 +1,13 @@
+<!--pages/room/room.wxml-->
+<view>
+  <view>房间号</view>
+  <view>100000</view>
+  <view>已加入的玩家(/)</view>
+
+  <view></view>
+
+  <button>开始游戏</button>
+  <button>邀请好友</button>
+  <button>重新建房</button>
+
+</view>

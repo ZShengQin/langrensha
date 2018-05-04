@@ -1,0 +1,26 @@
+<!--pages/room/room.wxml-->
+<view>
+  <text>游戏设定</text>
+  <view>
+    <text>平民: </text>
+    <slider min='2' max='10' value='{{numPeople}}' bindchange='changePeople'></slider>
+    <text>{{numPeople}}</text>
+  </view>
+
+  <view>
+    <text>狼人: </text>
+    <slider min='2' max='10' value='{{numWerewolf}}' bindchange='changeWerewolf'></slider>
+    <text>{{numWerewolf}}</text>
+  </view>
+
+  <view>
+    <view>预言家: <switch checked bindchange='changeSeer' /></view>
+    <view>女巫: <switch checked bindchange='changeWitch' /></view>
+    <view>猎人: <switch checked bindchange='changeHunter' /></view>
+    <view>守卫: <switch bindchange='changeGuard' /></view>
+  </view>
+
+  <text>当前人数:{{numTotal}}</text>
+  <button bindtap='createRoom'>创建房间</button>
+  
+</view>
