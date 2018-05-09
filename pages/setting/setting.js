@@ -1,5 +1,6 @@
 // pages/room/room.js
 const app = getApp()
+const SettingUtil = require('../../utils/SettingUtil.js')
 
 Page({
 
@@ -8,8 +9,9 @@ Page({
    */
   data: {
     code: '',
-    
+
     numTotal: 8,
+
     numPeople: 2,
     numWerewolf: 3,
     numSeer: 1,
@@ -19,24 +21,47 @@ Page({
   },
 
   createRoom: function(){
+
+    let roleList = SettingUtil.genShuffleArray([
+      this.data.numTotal,
+      this.data.numPeople,
+      this.data.numWerewolf,
+      this.data.numSeer,
+      this.data.numWitch,
+      this.data.numHunter,
+      this.data.numGuard
+    ])
+
     wx.request({
-      url: 'https://www.sillycode.cn/room',
+      url: 'http://localhost/room',
+      method: 'POST',
       data: {
-        code: app.code,
-        numTotal: this.data.numTotal,
-        numPeople: this.data.numPeople,
-        numWerewolf: this.data.numWerewolf,
-        numSeer: this.data.numSeer,
-        numWitch: this.data.numWitch,
-        numHunter: this.data.numHunter,
-        numGuard: this.data.numGuard
+        code: app.globalData.code,
+        name: app.globalData.userInfo.nickName,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+        roleList: roleList
       },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      //请求成功，创建并进入房间
       success: res => {
-        console.log(res.data)
+        console.log(res)
+        app.globalData.roomId = res.data.roomId
+        app.globalData.userList = res.data.userList
+        wx.navigateTo({
+          url: '../room/room?numTotal=' + this.data.numTotal,
+        })
+      },
+      //请求失败，返回设置页面
+      fail: res => {
+        wx.showModal({
+          title: 'Error!',
+          content: '请检查网络设置！',
+          showCancel: false,
+        })
+        console.log(res)
       }
-    })
-    wx.navigateTo({
-      url: '../room/room',
     })
   },
 
@@ -146,13 +171,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
   
   },
 

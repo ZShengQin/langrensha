@@ -8,6 +8,7 @@ App({
           this.globalData.code = res.code
         }
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        
       }
     })
 
@@ -34,7 +35,12 @@ App({
   },
 
   globalData: {
+    serverAddress: 'http://localhost',
     userInfo: null,
-    code: ''
+    code: '',
+    roomId: '',
+    userList: null,
+
+    role: ''
   }
 })

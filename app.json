@@ -2,12 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/setting/setting",
-    "pages/room/room"
+    "pages/room/room",
+    "pages/role/role"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "狼人杀工具",
     "navigationBarTextStyle": "black"
   }
 }

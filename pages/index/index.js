@@ -6,7 +6,8 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    enteredRoomId: 0
   },
 
   //点击按钮获取用户信息
@@ -18,9 +19,59 @@ Page({
     })
   },
 
+  //响应房间创建者
   createRoom: function () {
     wx.navigateTo({
       url: '../setting/setting',
+    })
+  },
+
+  //获取用户输入的roomId
+  inputRoomId: function(e) {
+    this.setData({
+      enteredRoomId: e.detail.value
+    })
+  },
+
+  enterRoom: function(){
+    wx.request({
+      url: app.globalData.serverAddress + '/room/' + this.data.enteredRoomId,
+      //method: 'GET',
+      //header: {
+      //  'content-type': 'application/x-www-form-urlencoded'
+      //},
+      data: {
+        code: app.code,
+        name: app.globalData.userInfo.nickName,
+        avatarUrl: app.globalData.userInfo.avatarUrl
+      },
+      success: res => {
+        console.log(res)
+        //输入正确的房间号
+        if(res.data.roomId){
+          //app.globalData.roomId = res.data.roomId
+          //app.globalData.userList = res.data.userList
+          wx.navigateTo({
+            //url: '../room/room?roomId=' + app.globalData.roomId,
+            url: '../role/role?role=' + res.data.role
+          })
+        //房间号不正确
+        } else {
+          wx.showModal({
+            title: 'Failed',
+            content: '请输入正确的房间号',
+            showCancel: false
+          })
+        }
+      },
+      fail: res => {
+        console.log("enter failed")
+        wx.showModal({
+          title: 'Error!',
+          content: '请检查网络配置！',
+          showCancel: false
+        })
+      }
     })
   },
 

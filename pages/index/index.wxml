@@ -10,7 +10,10 @@
 
   <view>
     <button bindtap='createRoom'>创建房间</button>
-    <button bindtap='enterRoom'>进入房间</button>
+    <view>
+      <input bindblur='inputRoomId' maxlength='6' placeholder='输入房间号' style='height: 100rpx' />
+      <button bindtap='enterRoom'>进入房间</button>
+    </view>
     <button bindtap='viewRule'>游戏玩法</button>
   </view>
 </view>
