@@ -40,7 +40,6 @@ App({
     code: '',
     roomId: '',
     userList: null,
-
-    role: ''
+    roleString: ''
   }
 })

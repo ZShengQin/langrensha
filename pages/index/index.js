@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const Error = require('../../Global/Error.js')
 
 Page({
   data: {
@@ -36,10 +37,6 @@ Page({
   enterRoom: function(){
     wx.request({
       url: app.globalData.serverAddress + '/room/' + this.data.enteredRoomId,
-      //method: 'GET',
-      //header: {
-      //  'content-type': 'application/x-www-form-urlencoded'
-      //},
       data: {
         code: app.code,
         name: app.globalData.userInfo.nickName,
@@ -51,9 +48,10 @@ Page({
         if(res.data.roomId){
           //app.globalData.roomId = res.data.roomId
           //app.globalData.userList = res.data.userList
+          app.globalData.roleString = res.data.roleString
           wx.navigateTo({
             //url: '../room/room?roomId=' + app.globalData.roomId,
-            url: '../role/role?role=' + res.data.role
+            url: '../role/role?numCurrent=' + res.data.numCurrent
           })
         //房间号不正确
         } else {
@@ -67,8 +65,8 @@ Page({
       fail: res => {
         console.log("enter failed")
         wx.showModal({
-          title: 'Error!',
-          content: '请检查网络配置！',
+          title: Error.networkErr,
+          content: Error.networkErrContent,
           showCancel: false
         })
       }

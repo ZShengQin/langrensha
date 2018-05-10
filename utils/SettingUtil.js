@@ -1,3 +1,8 @@
+const app = getApp()
+
+/**
+ * 生成打乱顺序的数组
+ */
 const genShuffleArray = member => {
   //生成一个角色数组
   let roleList = []
@@ -11,12 +16,40 @@ const genShuffleArray = member => {
   }
 
   //打乱顺序
-  return roleList.sort((a, b) => {
-    return Math.random() > 0.5 ? -1 : 1
-  }).join('')
-
+  for (let i = roleList.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (roleList.length + 1));
+    let temp = roleList[i];
+    roleList[i] = roleList[j];
+    roleList[j] = temp;
+  }
+  return roleList.join('');
 }
 
+/**
+ * 数字转化为角色
+ */
+const transRole = num => {
+  let roleId = app.globalData.roleString.charAt(num - 1)
+  switch(roleId){
+    case '1':
+      return "平民"
+    case '2':
+      return "狼人"
+    case '3':
+      return "预言家"
+    case '4':
+      return "女巫"
+    case '5':
+      return "猎人"
+    case '6':
+      return "守卫"
+    default:
+      return "Error!"
+  }
+}
+
+
 module.exports = {
-  genShuffleArray: genShuffleArray
+  genShuffleArray: genShuffleArray,
+  transRole: transRole
 }

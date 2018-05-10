@@ -1,5 +1,7 @@
 // pages/room/room.js
 const app = getApp()
+const SettingUtil = require('../../utils/SettingUtil.js')
+const Error = require('../../Global/Error.js')
 
 Page({
 
@@ -11,59 +13,20 @@ Page({
     userList: null,
     numTotal: 0,        //创建者设置的游戏总人数
     numCurrent: 1,      //当前加入的人数
+    role: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let role = SettingUtil.transRole(this.data.numCurrent)
     this.setData({
       roomId: app.globalData.roomId,
       userList: app.globalData.userList,
-      numTotal: options.numTotal
+      numTotal: options.numTotal,
+      role: role
     })
-
-    /*
-    if(!app.globalData.roomId){
-      wx.request({
-        url: 'http://localhost/room',
-        method: 'POST',
-        data: {
-          code: app.globalData.code,
-          name: app.globalData.userInfo.nickName,
-          avatarUrl: app.globalData.userInfo.avatarUrl
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded'
-        },
-        //请求成功，创建并进入房间
-        success: res => {
-          console.log(res)
-          app.globalData.roomId = res.data.roomId
-          app.globalData.userList = res.data.userList
-          const numCurrent = this.data.numCurrent++
-          this.setData({
-            roomId: app.globalData.roomId,
-            userList: app.globalData.userList,
-            numTotal: options.numTotal,
-            numCurrent: numCurrent
-          })
-        },
-        //请求失败，返回设置页面
-        fail: res => { 
-          wx.showModal({
-            title: 'Error!',
-            content: '请检查网络设置！',
-            showCancel: false,
-            success: () => {
-              wx.navigateBack()
-            }
-          })
-          console.log(res)
-        }
-      })
-    }
-    */
   },
 
   /**
@@ -108,7 +71,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    wx.request({
+      url: app.globalData.serverAddress + '/room/' + this.data.roomId,
+      method: 'GET',
+      success: res => {
+        this.setData({
+          userList: res.data.userList
+        })
+      },
+      fail: () => {
+        wx.showModal({
+          title: Error.networkErr,
+          content: Error.networkErrContent,
+          showCancel: false
+        })
+      }
+    })
   },
 
   /**

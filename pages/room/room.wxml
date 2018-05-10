@@ -12,6 +12,7 @@
     </view>
   </view>
 
+  <text>我的角色：{{role}}</text>
   <button>邀请好友</button>
   <button>重新建房</button>
 

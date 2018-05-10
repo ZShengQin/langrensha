@@ -1,2 +1,2 @@
 <!--pages/role/role.wxml-->
-<text>{{roleName}}</text>
+<text>{{role}}</text>

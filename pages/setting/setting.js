@@ -1,6 +1,7 @@
 // pages/room/room.js
 const app = getApp()
 const SettingUtil = require('../../utils/SettingUtil.js')
+const Error = require('../../Global/Error.js')
 
 Page({
 
@@ -49,15 +50,16 @@ Page({
         console.log(res)
         app.globalData.roomId = res.data.roomId
         app.globalData.userList = res.data.userList
+        app.globalData.roleString = res.data.roleString
         wx.navigateTo({
-          url: '../room/room?numTotal=' + this.data.numTotal,
+          url: '../room/room?numTotal=' + this.data.numTotal + '&roleList=' + res.data.roleList ,
         })
       },
       //请求失败，返回设置页面
       fail: res => {
         wx.showModal({
-          title: 'Error!',
-          content: '请检查网络设置！',
+          title: Error.networkErr,
+          content: Error.networkErrContent,
           showCancel: false,
         })
         console.log(res)
