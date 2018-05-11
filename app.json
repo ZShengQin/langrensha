@@ -2,13 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/setting/setting",
-    "pages/room/room",
-    "pages/role/role"
+    "pages/role/role",
+    "pages/room/room"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "狼人杀工具",
+    "navigationBarTitleText": "狼人杀桌游工具",
     "navigationBarTextStyle": "black"
   }
 }

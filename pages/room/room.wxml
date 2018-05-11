@@ -1,9 +1,12 @@
 <!--pages/room/room.wxml-->
-<view>
-  <view>房间号: {{roomId}}</view>
-  <view>已加入的玩家({{numCurrent}}/{{numTotal}})</view>
+<view class='container'>
+  <view class='roomid-block'>
+    <text class='roomid-title'>房间号</text>
+    <text class='roomid-content'>{{roomId}}</text>
+  </view>
+  <view class='block-container'>已加入的玩家({{numCurrent}}/{{numTotal}})</view>
 
-  <view>
+  <view class='block-container userinfo-list'>
     <view wx:for='{{userList}}' wx:key='code' >
       <view class='userinfo'>
         <image class='userinfo-avatar' src='{{item.avatarUrl}}'></image>
@@ -12,8 +15,20 @@
     </view>
   </view>
 
-  <text>我的角色：{{role}}</text>
-  <button>邀请好友</button>
-  <button>重新建房</button>
+  <view class='block-container role-hide'>
+    <text>我的角色：</text>
+    <block wx:if='{{showMyrole}}'>
+       <text>{{role}}</text>
+       <button class='weui-btn mini-btn btn-show-myrole' size='mini' bindtap='showRole'>隐藏我的角色</button>
+    </block>
+
+    <block wx:else>
+      <text>******</text>
+      <button class='weui-btn mini-btn' type='warn' size='mini' bindtap='showRole'>显示我的角色</button>
+    </block>
+  </view>
+  
+  <button class='weui-btn btn-invite' type='primary'>邀请好友</button>
+  <button class='weui-btn btn-recreate' type='warn'>重新建房</button>
 
 </view>

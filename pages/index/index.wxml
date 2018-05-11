@@ -8,12 +8,27 @@
     </block>
   </view>
 
-  <view>
-    <button bindtap='createRoom'>创建房间</button>
-    <view>
-      <input bindblur='inputRoomId' maxlength='6' placeholder='输入房间号' style='height: 100rpx' />
-      <button bindtap='enterRoom'>进入房间</button>
+  <view class='main-area'>
+    <view class='main-area-half'>
+      <view class='main-area-quater' bindtap='createRoom'>
+        <image class='icon' src='../../lib/image/icon/createroom.png'></image>
+        <text>创建房间</text>
+      </view>
+      <view class='main-area-quater' >
+        <input class='input-roomid' bindblur='inputRoomId' maxlength='6' placeholder='输入房间号' />
+        <view bindtap='enterRoom'>进入房间</view>
+      </view>
     </view>
-    <button bindtap='viewRule'>游戏玩法</button>
+
+    <view class='main-area-half'>
+      <view class='main-area-quater' bindtap='viewRule'>
+        <image class='icon' src='../../lib/image/icon/gameintro.png'></image>
+        <text>游戏玩法</text>
+      </view>
+      <view class='main-area-quater' bindtap='viewRule'>
+        <image class='icon' src='../../lib/image/icon/roleintro.png'></image>
+        <text>角色介绍</text>
+      </view>
+    </view>
   </view>
 </view>

@@ -1,2 +1,5 @@
 <!--pages/role/role.wxml-->
-<text>{{role}}</text>
+<view class='my-role'>
+  <text>我的角色</text>
+  <text class='role-content'>{{role}}</text>
+</view>

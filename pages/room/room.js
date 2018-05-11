@@ -13,7 +13,16 @@ Page({
     userList: null,
     numTotal: 0,        //创建者设置的游戏总人数
     numCurrent: 1,      //当前加入的人数
-    role: ''
+    role: '',
+
+    showMyrole: true
+  },
+
+  showRole: function(){
+    let showMyrole = this.data.showMyrole ? false : true
+    this.setData({
+      showMyrole: showMyrole
+    })
   },
 
   /**

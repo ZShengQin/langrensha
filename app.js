@@ -38,7 +38,7 @@ App({
     serverAddress: 'http://localhost',
     userInfo: null,
     code: '',
-    roomId: '',
+    roomId: 0,
     userList: null,
     roleString: ''
   }

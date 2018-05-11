@@ -1,1 +1,13 @@
 /* pages/role/role.wxss */
+.my-role{
+  height: 600rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  color: #b7eb8f;
+}
+.role-content{
+  font-size: 40px;
+  color: #135200;
+}

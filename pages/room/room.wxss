@@ -1,4 +1,23 @@
 /* pages/room/room.wxss */
+
+.roomid-block{
+  height: 200rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.roomid-title{
+  font-size: 15px;
+}
+.roomid-content{
+  font-size: 40px;
+}
+
+.userinfo-list{
+  display: flex;
+  flex-flow: row wrap;
+}
 .userinfo {
   height: 40%;
   width: 100%;
@@ -6,14 +25,29 @@
   flex-direction: column;
   align-items: center;
 }
-
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-
 .userinfo-nickname {
   color: #aaa;
+}
+
+.role-hide{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  justify-content: center;
+  height: 100rpx;
+  margin: 20px 10px;
+}
+.btn-show-myrole{
+  background-color: #cfcfcf;
+}
+
+.btn-invite,
+.btn-recreate{
+  width: 90%;
 }
