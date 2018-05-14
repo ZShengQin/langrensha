@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/setting/setting",
     "pages/role/role",
-    "pages/room/room"
+    "pages/room/room",
+    "pages/roleintro/roleintro",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

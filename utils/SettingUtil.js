@@ -43,6 +43,12 @@ const transRole = num => {
       return "猎人"
     case '6':
       return "守卫"
+    case '7':
+      return "丘比特"
+    case '8':
+      return "白痴"
+    case '9':
+      return "小女孩"
     default:
       return "Error!"
   }

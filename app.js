@@ -35,7 +35,7 @@ App({
   },
 
   globalData: {
-    serverAddress: 'http://localhost',
+    
     userInfo: null,
     code: '',
     roomId: 0,

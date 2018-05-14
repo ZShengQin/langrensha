@@ -2,6 +2,7 @@
 const app = getApp()
 const SettingUtil = require('../../utils/SettingUtil.js')
 const Error = require('../../Global/Error.js')
+const API = require('../../Global/API.js')
 
 Page({
 
@@ -15,7 +16,7 @@ Page({
     numCurrent: 1,      //当前加入的人数
     role: '',
 
-    showMyrole: true
+    showMyrole: false
   },
 
   showRole: function(){
@@ -67,7 +68,7 @@ Page({
     app.globalData.userList = null
     //创建者离开房间，房间销毁
     wx.request({
-      url: app.globalData.serverAddress + '/room/' + this.data.roomId,
+      url: API.DOMAIN + '/room/' + this.data.roomId,
       method: 'DELETE',
       success: res => {
         console.log(res)
@@ -81,7 +82,7 @@ Page({
    */
   onPullDownRefresh: function () {
     wx.request({
-      url: app.globalData.serverAddress + '/room/' + this.data.roomId,
+      url: API.DOMAIN + '/room/' + this.data.roomId,
       method: 'GET',
       success: res => {
         this.setData({

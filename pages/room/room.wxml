@@ -4,12 +4,15 @@
     <text class='roomid-title'>房间号</text>
     <text class='roomid-content'>{{roomId}}</text>
   </view>
-  <view class='block-container'>已加入的玩家({{numCurrent}}/{{numTotal}})</view>
+  <view class='block-container'>
+    <text>已加入的玩家({{numCurrent}}/{{numTotal}})</text>
+    <text class='refresh-tips'>(下拉刷新玩家列表)</text>
+  </view>
 
   <view class='block-container userinfo-list'>
     <view wx:for='{{userList}}' wx:key='code' >
       <view class='userinfo'>
-        <image class='userinfo-avatar' src='{{item.avatarUrl}}'></image>
+        <image class='userinfo-avatar' src='{{item.avatarUrl}}' background-size='cover'></image>
         <text class='userinfo-nickname'>{{item.name}}</text>
       </view>
     </view>
@@ -24,7 +27,7 @@
 
     <block wx:else>
       <text>******</text>
-      <button class='weui-btn mini-btn' type='warn' size='mini' bindtap='showRole'>显示我的角色</button>
+      <button class='weui-btn mini-btn' type='warn' size='mini' bindtap='showRole'>查看我的角色</button>
     </block>
   </view>
   

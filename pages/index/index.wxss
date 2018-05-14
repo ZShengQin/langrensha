@@ -41,6 +41,6 @@
   height: 100rpx;
 }
 .input-roomid{
-  width: 200rpx;
+  width: 180rpx;
   height: 100rpx;
 }

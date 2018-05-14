@@ -1,11 +1,15 @@
 /* pages/setting/setting.wxss */
 .grid-content{
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
 }
 
 .btn-create{
   width: 90%;
+}
+
+.icon{
+  font-size: 21px;
 }

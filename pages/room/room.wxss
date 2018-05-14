@@ -14,13 +14,15 @@
   font-size: 40px;
 }
 
+.refresh-tips{
+  font-size: 15px;
+}
+
 .userinfo-list{
   display: flex;
   flex-flow: row wrap;
 }
 .userinfo {
-  height: 40%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -21,13 +21,13 @@
     </view>
 
     <view class='main-area-half'>
-      <view class='main-area-quater' bindtap='viewRule'>
+      <view class='main-area-quater' bindtap='navRuleintro'>
         <image class='icon' src='../../lib/image/icon/gameintro.png'></image>
         <text>游戏玩法</text>
       </view>
-      <view class='main-area-quater' bindtap='viewRule'>
+      <view class='main-area-quater' bindtap='navAbout'>
         <image class='icon' src='../../lib/image/icon/roleintro.png'></image>
-        <text>角色介绍</text>
+        <text>关于我们</text>
       </view>
     </view>
   </view>

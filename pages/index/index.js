@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const Error = require('../../Global/Error.js')
+const API = require('../../Global/API.js')
 
 Page({
   data: {
@@ -13,17 +14,26 @@ Page({
 
   //点击按钮获取用户信息
   getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    //用户点击确认，显示头像和昵称
+    if(e.detail.userInfo){
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    } else {
+      wx.showModal({
+        title: 'Warning！',
+        content: '拒绝获取用户信息将导致该工具无法正常使用！请点击“获取头像昵称”重新授权！',
+        showCancel: false
+      })
+    }
   },
 
   //响应房间创建者
   createRoom: function () {
     wx.navigateTo({
-      url: '../setting/setting',
+      url: '../setting/setting?hasUserInfo=' + this.data.hasUserInfo,
     })
   },
 
@@ -36,7 +46,7 @@ Page({
 
   enterRoom: function(){
     wx.request({
-      url: app.globalData.serverAddress + '/room/' + this.data.enteredRoomId,
+      url: API.DOMAIN + '/room/' + this.data.enteredRoomId,
       data: {
         code: app.code,
         name: app.globalData.userInfo.nickName,
@@ -73,7 +83,18 @@ Page({
     })
   },
 
-  //事件处理函数
+  navRuleintro: function(){
+    wx.navigateTo({
+      url: '../roleintro/roleintro',
+    })
+  },
+
+  navAbout: function(){
+    wx.navigateTo({
+      url: '../about/about',
+    })
+  },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

@@ -2,6 +2,7 @@
 const app = getApp()
 const SettingUtil = require('../../utils/SettingUtil.js')
 const Error = require('../../Global/Error.js')
+const API = require('../../Global/API.js')
 
 Page({
 
@@ -18,11 +19,13 @@ Page({
     numSeer: 1,
     numWitch: 1,
     numHunter: 1,
-    numGuard: 0
+    numGuard: 0,
+    numCupid: 0,
+    numIdiot: 0,
+    numGirl: 0
   },
 
   createRoom: function(){
-
     let roleList = SettingUtil.genShuffleArray([
       this.data.numTotal,
       this.data.numPeople,
@@ -30,11 +33,14 @@ Page({
       this.data.numSeer,
       this.data.numWitch,
       this.data.numHunter,
-      this.data.numGuard
+      this.data.numGuard,
+      this.data.numCupid,
+      this.data.numIdiot,
+      this.data.numGirl
     ])
 
     wx.request({
-      url: 'http://localhost/room',
+      url: API.DOMAIN + '/room',
       method: 'POST',
       data: {
         code: app.globalData.code,
@@ -133,12 +139,52 @@ Page({
       numGuard: numGuard
     })
   },
+  changeCupid: function (e) {
+    let numCupid = this.changeOthers(e) ? 1 : 0
+    this.setData({
+      numCupid: numCupid
+    })
+  },
+  changeIdiot: function (e) {
+    let numIdiot = this.changeOthers(e) ? 1 : 0
+    this.setData({
+      numIdiot: numIdiot
+    })
+  },
+  changeGirl: function (e) {
+    let numGirl = this.changeOthers(e) ? 1 : 0
+    this.setData({
+      numGirl: numGirl
+    })
+  },
+
+  navRoleIntro: function(){
+    wx.navigateTo({
+      url: '../roleintro/roleintro',
+    })
+  },
+
+  showMore: function() {
+    wx.showToast({
+      title: '敬请期待',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if(options.hasUserInfo == 'false'){
+      wx.showModal({
+        title: 'Warning',
+        content: '未授权用户信息，将无法创建房间，点击确定返回主页！',
+        success: (res) => {
+          if(res.confirm){
+            wx.navigateBack()
+          }
+        }
+      })
+    }
   },
 
   /**
@@ -152,7 +198,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
