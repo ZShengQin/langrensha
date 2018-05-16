@@ -85,7 +85,7 @@ Page({
 
   navRuleintro: function(){
     wx.navigateTo({
-      url: '../roleintro/roleintro',
+      url: '../gameintro/gameintro',
     })
   },
 
@@ -122,6 +122,13 @@ Page({
         }
       })
     }
+  },
+  
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 
 })

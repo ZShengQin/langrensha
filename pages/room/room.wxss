@@ -53,3 +53,7 @@
 .btn-recreate{
   width: 90%;
 }
+
+.recreate-area{
+  margin-top: 20rpx;
+}

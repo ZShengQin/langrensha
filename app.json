@@ -4,13 +4,15 @@
     "pages/setting/setting",
     "pages/role/role",
     "pages/room/room",
-    "pages/roleintro/roleintro",
-    "pages/about/about"
+    "pages/gameintro/gameintro",
+    "pages/about/about",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "狼人杀桌游工具",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

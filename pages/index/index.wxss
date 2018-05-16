@@ -44,3 +44,6 @@
   width: 180rpx;
   height: 100rpx;
 }
+.main-nav-text{
+  font-size: 20px;
+}

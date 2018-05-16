@@ -1,0 +1,22 @@
+/* pages/roleintro/roleintro.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+
+.grid-content{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-create{
+  width: 90%;
+}
+
+.icon{
+  font-size: 21px;
+}

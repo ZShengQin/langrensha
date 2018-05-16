@@ -83,10 +83,16 @@ Page({
   onPullDownRefresh: function () {
     wx.request({
       url: API.DOMAIN + '/room/' + this.data.roomId,
+      data: {
+        code: app.globalData.code,
+        name: app.globalData.userInfo.nickName,
+        avatarUrl: app.globalData.userInfo.avatarUrl,
+      },
       method: 'GET',
       success: res => {
         this.setData({
-          userList: res.data.userList
+          userList: res.data.userList,
+          numCurrent: res.data.numCurrent
         })
       },
       fail: () => {

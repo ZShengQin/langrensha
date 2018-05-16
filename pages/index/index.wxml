@@ -12,22 +12,22 @@
     <view class='main-area-half'>
       <view class='main-area-quater' bindtap='createRoom'>
         <image class='icon' src='../../lib/image/icon/createroom.png'></image>
-        <text>创建房间</text>
+        <text class='main-nav-text'>创建房间点我</text>
       </view>
       <view class='main-area-quater' >
         <input class='input-roomid' bindblur='inputRoomId' maxlength='6' placeholder='输入房间号' />
-        <view bindtap='enterRoom'>进入房间</view>
+        <view class='main-nav-text' bindtap='enterRoom'><text class='iconfont icon-fangjian'></text>进入房间点我</view>
       </view>
     </view>
 
     <view class='main-area-half'>
       <view class='main-area-quater' bindtap='navRuleintro'>
         <image class='icon' src='../../lib/image/icon/gameintro.png'></image>
-        <text>游戏玩法</text>
+        <text class='main-nav-text'>狼人杀介绍</text>
       </view>
       <view class='main-area-quater' bindtap='navAbout'>
         <image class='icon' src='../../lib/image/icon/roleintro.png'></image>
-        <text>关于我们</text>
+        <text class='main-nav-text'>关于我们</text>
       </view>
     </view>
   </view>

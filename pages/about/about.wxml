@@ -1,2 +1,56 @@
 <!--pages/about/about.wxml-->
-<text>pages/about/about.wxml</text>
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">狼人杀桌游工具</view>
+    <view class="page__desc">https://www.sillycode.cn</view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-cells__title">商业合作联系方式（点击复制）</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="https://wx.qlogo.cn/mmopen/vi_32/FJtqJGm3kLBoAtjP49M5sicicPRfhibWAGv2oElBfZqADaS6vyVI8WwQIdl894YlxpXia20HRgo6ibAYApj8YEhu9fA/132" style="width: 50px; height: 50px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+          <view>Qin.</view>
+          <view style="font-size: 13px;color: #888888;">Mr.Zhang</view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap='copyContent' data-content='{{email}}'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">E-mail: {{email}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap='copyContent' data-content='{{qq}}'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">QQ: {{qq}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle"></view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_access" bindtap='userFeedback'>
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle">用户反馈点我</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">
+          <view style="display: inline-block; vertical-align: middle"></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    email: '1309075777@qq.com',
+    qq: '1309075777'
+  },
+
+  copyContent: e => {
+    console.log(e)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.content,
+    })
+    wx.showToast({
+      title: '复制成功',
+    })
+  },
+
+  userFeedback: () => {
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    })
   },
 
   /**

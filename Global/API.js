@@ -1,4 +1,4 @@
-const DOMAIN = 'http://localhost:443'
+const DOMAIN = 'https://www.sillycode.cn'
 
 module.exports = {
   DOMAIN: DOMAIN
