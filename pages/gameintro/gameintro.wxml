@@ -1,12 +1,12 @@
 <!--pages/roleintro/roleintro.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title">狼人杀桌游</view>
+    <view class="page__title">狼人杀</view>
     <view class="page__desc">狼人杀介绍</view>
   </view>
   <view class="page__bd">
     <view class="weui-article">
-      <view class="weui-article__h1">游戏定位</view>
+      <view class="weui-article__h1">定位</view>
       <view class="weui-article__section">
         <view class="weui-article__p">
           <text space='emsp'>  狼人杀，是一款多人参与的、以语言描述推动的、较量口才和分析判断能力的策略类桌面游戏。通常的版本需要8-18人参与。狼人杀游戏的机制与杀人游戏相类似，杀人游戏更倾向于竞技，狼人杀游戏则更加欢乐，角色更丰富。游戏分为两大阵营，狼人和村民；村民方以投票为手段投死狼人获取最后胜利，狼人阵营隐匿于村民中间，靠夜晚杀人及投票消灭村民方成员为获胜手段，狼人杀属于桌面游戏，可以多人玩。</text>
@@ -16,7 +16,7 @@
         </view>
       </view>
 
-      <view class="weui-article__h1">角色介绍</view>
+      <view class="weui-article__h1">角色</view>
       <view class="weui-grids">
         <view class='weui-grid grid-content'>平民</view>
         <view class='weui-grid grid-content'>狼人</view>
@@ -43,7 +43,7 @@
         </view>
       </view>
 
-      <view class="weui-article__h1">游戏目标</view>
+      <view class="weui-article__h1">目标</view>
       <view class="weui-article__section">
         <view class="weui-article__p">
           <text space='emsp'>  一般情况下，游戏共分两个阵营：村民阵营（包括所有神民和平民）和狼人阵营。
@@ -55,7 +55,7 @@
         </view>
       </view>
 
-      <view class="weui-article__h1">游戏进程</view>
+      <view class="weui-article__h1">进程</view>
       <view class="weui-article__section">
         <view class="weui-article__p">
           <text space='emsp'>  需要一名熟悉游戏规则的玩家做法官。法官即“上帝视角”，只负责游戏的进行，不参与游戏，且不影响游戏进程，不属于任何阵营。
@@ -115,7 +115,7 @@
         </view>
       </view>
 
-      <view class="weui-article__h1">故事背景</view>
+      <view class="weui-article__h1">背景</view>
       <view class="weui-article__section">
         <view class="weui-article__p">
           <text space='emsp'>  狼人起源于很久以前的欧洲，那时候由于瘟疫，村子里只活下来一个年轻人。他的后代有三个（不知道是和谁恋爱生的孩子，因为是“只活下来一个年轻人”）。一个被毒蝙蝠咬了，一个让毒狼咬了，只有一个比较正常。前两位一个是吸血鬼的祖先，一个是狼人祖先。

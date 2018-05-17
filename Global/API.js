@@ -1,4 +1,4 @@
-const DOMAIN = 'http://localhost:550'
+const DOMAIN = 'http://localhost'
 const SUCCESS = 0
 const SYSTEM_ERROR = -1
 const ENTER_ERROR = 100

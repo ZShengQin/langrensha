@@ -3,6 +3,7 @@
   <view class='roomid-block'>
     <text class='roomid-title'>房间号</text>
     <text class='roomid-content'>{{roomId}}</text>
+    <text class='roomid-title'>(注意: 创建者点击返回将销毁房间)</text>
   </view>
   <view class='block-container'>
     <text>已加入的玩家({{numCurrent}}/{{numTotal}})</text>

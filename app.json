@@ -11,7 +11,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "狼人杀桌游工具",
+    "navigationBarTitleText": "狼人杀角色分配",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   }

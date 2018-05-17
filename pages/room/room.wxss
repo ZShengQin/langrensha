@@ -1,16 +1,18 @@
 /* pages/room/room.wxss */
 
 .roomid-block{
-  height: 200rpx;
+  height: 300rpx;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
 .roomid-title{
+  display: block;
   font-size: 15px;
 }
 .roomid-content{
+  display: block;
   font-size: 40px;
 }
 
