@@ -54,11 +54,11 @@ Page({
       //请求成功，创建并进入房间
       success: res => {
         console.log(res)
-        app.globalData.roomId = res.data.roomId
-        app.globalData.userList = res.data.userList
-        app.globalData.roleString = res.data.roleString
+        app.globalData.roomId = res.data.data.roomId
+        app.globalData.userList = res.data.data.userList
+        app.globalData.roleString = res.data.data.roleString
         wx.navigateTo({
-          url: '../room/room?numTotal=' + this.data.numTotal + '&roleList=' + res.data.roleList ,
+          url: '../room/room?numTotal=' + this.data.numTotal + '&roleList=' + res.data.data.roleList ,
         })
       },
       //请求失败，返回设置页面

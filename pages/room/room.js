@@ -91,8 +91,8 @@ Page({
       method: 'GET',
       success: res => {
         this.setData({
-          userList: res.data.userList,
-          numCurrent: res.data.numCurrent
+          userList: res.data.data.userList,
+          numCurrent: res.data.data.numCurrent
         })
       },
       fail: () => {

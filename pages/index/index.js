@@ -55,20 +55,22 @@ Page({
       success: res => {
         console.log(res)
         //输入正确的房间号
-        if(res.data.roomId){
-          //app.globalData.roomId = res.data.roomId
-          //app.globalData.userList = res.data.userList
-          app.globalData.roleString = res.data.roleString
+        if(res.data.code == API.SUCCESS){
+          app.globalData.roleString = res.data.data.roleString
           wx.navigateTo({
-            //url: '../room/room?roomId=' + app.globalData.roomId,
-            url: '../role/role?numCurrent=' + res.data.numCurrent
+            url: '../role/role?numCurrent=' + res.data.data.numCurrent
           })
         //房间号不正确
-        } else {
+        } else if(res.data.code == API.ENTER_ERROR) {
           wx.showModal({
-            title: 'Failed',
+            title: 'Error!',
             content: '请输入正确的房间号',
             showCancel: false
+          })
+        } else {
+          wx.showModal({
+            title: 'Failed!',
+            content: '请求错误',
           })
         }
       },

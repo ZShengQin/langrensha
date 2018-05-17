@@ -15,7 +15,7 @@
         <text class='main-nav-text'>创建房间点我</text>
       </view>
       <view class='main-area-quater' >
-        <input class='input-roomid' bindblur='inputRoomId' maxlength='6' placeholder='输入房间号' />
+        <input class='input-roomid' bindblur='inputRoomId' maxlength='8' placeholder='输入房间号' />
         <view class='main-nav-text' bindtap='enterRoom'><text class='iconfont icon-fangjian'></text>进入房间点我</view>
       </view>
     </view>

@@ -10,13 +10,21 @@ Page({
   },
 
   copyContent: e => {
-    console.log(e)
     wx.setClipboardData({
       data: e.currentTarget.dataset.content,
+      success: () => {
+        wx.showToast({
+          title: '复制成功',
+        })
+      },
+      fail: () => {
+        wx.showToast({
+          title: '复制失败',
+          icon: 'none'
+        })
+      }
     })
-    wx.showToast({
-      title: '复制成功',
-    })
+    
   },
 
   userFeedback: () => {
